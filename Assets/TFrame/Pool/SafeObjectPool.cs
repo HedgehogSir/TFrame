@@ -51,7 +51,7 @@ namespace TFrame
                     while (removeCount > 0)
                     {
                         mCacheStack.Pop();
-                        --removeCount;
+                        removeCount--;
                     }
                 }
             }

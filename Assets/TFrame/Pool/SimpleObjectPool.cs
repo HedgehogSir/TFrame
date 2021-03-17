@@ -4,12 +4,12 @@ namespace TFrame
 {
     public class SimpleObjectPool<T> : Pool<T>
     {
-        readonly Action<T> mResetMethod;
+        readonly Action<T> mRecycleMethod;
 
-        public SimpleObjectPool(Func<T> factoryMethod, Action<T> resetMethod = null,int initCount = 0)
+        public SimpleObjectPool(Func<T> factoryMethod, Action<T> recycleMethod = null,int initCount = 0)
         {
             mFactory = new CustomObjectFactory<T>(factoryMethod);
-            mResetMethod = resetMethod;
+            mRecycleMethod = recycleMethod;
 
             for (int i = 0; i < initCount; i++)
             {
@@ -19,9 +19,9 @@ namespace TFrame
 
         public override bool Recycle(T obj)
         {
-            if (mResetMethod != null)
+            if (mRecycleMethod != null)
             {
-                mResetMethod.Invoke(obj);
+                mRecycleMethod.Invoke(obj);
             }
             
             mCacheStack.Push(obj);

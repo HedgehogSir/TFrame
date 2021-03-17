@@ -13,7 +13,7 @@ namespace TFrame
 
         protected readonly Stack<T> mCacheStack = new Stack<T>();
 
-        protected int mMaxCount = 12;
+        protected int mMaxCount = 16;
 
         public virtual T Allocate()
         {
