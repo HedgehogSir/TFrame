@@ -8,7 +8,7 @@ namespace TFrame
         {
             private LinkedList<OnEvent> mEventList;
 
-            public void Invoke(int key, params object[] param)
+            public void Invoke(params object[] param)
             {
                 if (mEventList == null)
                 {
@@ -17,7 +17,7 @@ namespace TFrame
 
                 foreach (var item in mEventList)
                 {
-                    item?.Invoke(key, param);
+                    item?.Invoke(param);
                 }
             }
 
@@ -88,10 +88,10 @@ namespace TFrame
         {
             if (mListenerDict.TryGetValue(key, out var listener))
             {
-                listener.Invoke(key, param);
+                listener.Invoke(param);
             }
         }
     }
 
-    public delegate void OnEvent(int key, params object[] param);
+    public delegate void OnEvent(params object[] param);
 }
