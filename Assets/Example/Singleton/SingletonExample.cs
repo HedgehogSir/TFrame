@@ -6,15 +6,17 @@ namespace TFrame
     {
         private void Start()
         {
-            Class2Singleton.Instance.Log("Hello World!");
-            
-            //释放掉该单例
+            //创建并使用 Class2Singleton 单例
+            Class2Singleton.Instance.Log("创建并使用 Class2Singleton 单例");
+
+            //释放掉该 Class2Singleton 单例
             Class2Singleton.Instance.Dispose();
 
-            //创建一个不同的单例
-            Class2Singleton.Instance.Log("Hello World!");
+            //创建一个不同的 Class2Singleton 单例
+            Class2Singleton.Instance.Log("创建一个不同的 Class2Singleton 单例");
 
-            Class2SignetonProperty.Instance.Log("Hello World!");
+            //创建并使用 Class2SignetonProperty 单例
+            Class2SignetonProperty.Instance.Log("创建并使用 Class2SignetonProperty 单例");
         }
     }
 
@@ -31,7 +33,7 @@ namespace TFrame
 
         public void Log(string content)
         {
-            Debug.LogFormat($"<color=#00ffffff>Class2Singleton {GetHashCode()} {content}</color>");
+            Debug.LogFormat($"<color=#00ffffff>HashCode:{GetHashCode()} {content}</color>");
         }
     }
 
@@ -57,7 +59,7 @@ namespace TFrame
 
         public void Log(string content)
         {
-            Debug.LogFormat($"<color=#00ffffff>Class2SignetonProperty {GetHashCode()} {content}</color>");
+            Debug.LogFormat($"<color=#00ffffff>HashCode:{GetHashCode()} {content}</color>");
         }
     }
 }

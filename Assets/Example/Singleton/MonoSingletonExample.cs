@@ -6,8 +6,8 @@ namespace TFrame
     {
         private void Start()
         {
-            Class2MonoSingleton.Instance.Log("Hello World!");
-            Class2MonoSingletonPath.Instance.Log("Hello World!");
+            Class2MonoSingleton.Instance.Log("创建并使用 Class2MonoSingleton 单例");
+            Class2MonoSingletonPath.Instance.Log("创建并使用 Class2MonoSingletonPath 单例");
         }
     }
 
@@ -37,7 +37,7 @@ namespace TFrame
 
         public void Log(string content)
         {
-            Debug.LogFormat($"<color=#00ffffff>Class2MonoSingleton {GetHashCode()} {content}</color>");
+            Debug.LogFormat($"<color=#00ffffff>HashCode:{GetHashCode()} {content}</color>");
         }
     }
 
@@ -46,7 +46,7 @@ namespace TFrame
     {
         public void Log(string content)
         {
-            Debug.LogFormat($"<color=#00ffffff>Class2MonoSingletonPath {GetHashCode()} {content}</color>");
+            Debug.LogFormat($"<color=#00ffffff>HashCode:{GetHashCode()} {content}</color>");
         }
     }
 }
